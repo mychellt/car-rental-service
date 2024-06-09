@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS cars (
 CREATE TABLE IF NOT EXISTS rentals(
    id UUID PRIMARY KEY,
    status VARCHAR(50) NOT NULL,
-   car_id CHAR(36) NOT NULL,
-   customer_id CHAR(36) NOT NULL,
+   car_id UUID NOT NULL,
+   customer_id UUID NOT NULL,
    number_of_days INT NOT NULL,
    check_in_date DATE,
    check_out_date DATE,
