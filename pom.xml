@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>gft.challenge</groupId>
+	<artifactId>car-rental</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Car Rental Service</name>
+
+	<description>Travel Booking Service</description>
+
+	<properties>
+		<java.version>17</java.version>
+		<commons-lang3>3.14.0</commons-lang3>
+		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>gft.challenge</groupId>
+				<artifactId>car-rental-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>gft.challenge</groupId>
+				<artifactId>car-rental-domain</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>gft.challenge</groupId>
+				<artifactId>car-rental-persistence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>gft.challenge</groupId>
+				<artifactId>car-rental-processor</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>gft.challenge</groupId>
+				<artifactId>car-rental-messaging-rabbitmq</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>gft.challenge</groupId>
+				<artifactId>car-rental-http-resources</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<inherited>true</inherited>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<inherited>true</inherited>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<debug>false</debug>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+					<annotationProcessorPaths>
+
+						<annotationProcessorPath>
+							<groupId>org.springframework.boot</groupId>
+							<artifactId>spring-boot-configuration-processor</artifactId>
+						</annotationProcessorPath>
+
+						<annotationProcessorPath>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</annotationProcessorPath>
+
+						<annotationProcessorPath>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${org.mapstruct.version}</version>
+						</annotationProcessorPath>
+
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<modules>
+		<module>car-rental-application</module>
+		<module>car-rental-core</module>
+		<module>car-rental-domain</module>
+		<module>car-rental-persistence</module>
+		<module>car-rental-processor</module>
+		<module>car-rental-messaging-rabbitmq</module>
+		<module>car-rental-http-resources</module>
+	</modules>
+
+</project>
