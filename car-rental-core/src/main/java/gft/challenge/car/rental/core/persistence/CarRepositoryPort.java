@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface CarRepositoryPort {
-  void save(final Car obj);
+  Car save(final Car obj);
   Optional<Car> get(final UUID id);
   List<Car> getAll();
 }

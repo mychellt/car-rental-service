@@ -7,11 +7,10 @@ CREATE TABLE IF NOT EXISTS customers (
 
 CREATE TABLE IF NOT EXISTS cars (
      id UUID PRIMARY KEY,
-     name VARCHAR(255) NOT NULL,
-     email VARCHAR(255) NOT NULL,
-     phone VARCHAR(20) NOT NULL,
-     number_of_rooms INT NOT NULL,
-     available_rooms INT
+     plate VARCHAR(255) NOT NULL,
+     model VARCHAR(255) NOT NULL,
+     available BOOLEAN NOT NULL,
+     price_per_day NUMERIC NOT NULL
 );
 
 
