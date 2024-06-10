@@ -1,6 +1,7 @@
 package gft.challenge.car.rental.persistence.model;
 
 
+import gft.challenge.car.rental.domain.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,4 +35,7 @@ public class RentalEntity {
 
   @Column(name = "travel_reservation_id")
   private UUID travelReservationId;
+
+  @Enumerated(EnumType.STRING)
+  private Status status;
 }

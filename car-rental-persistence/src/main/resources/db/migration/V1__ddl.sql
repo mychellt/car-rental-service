@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS cars (
      id UUID PRIMARY KEY,
      plate VARCHAR(255) NOT NULL,
-     model VARCHAR(255) NOT NULL,
+     model VARCHAR(255),
      available BOOLEAN NOT NULL,
-     price_per_day NUMERIC NOT NULL
+     price_per_day NUMERIC
 );
 
 
