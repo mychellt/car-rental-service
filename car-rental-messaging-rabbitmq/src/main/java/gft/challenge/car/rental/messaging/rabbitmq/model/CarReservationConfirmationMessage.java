@@ -1,4 +1,5 @@
-package gft.challenge.car.rental.domain;
+package gft.challenge.car.rental.messaging.rabbitmq.model;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,14 +13,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @Data
 @Builder
-public class Rental {
-  private Car car;
-  private LocalDateTime pickupDate;
-  private LocalDateTime returnDate;
+public class CarReservationConfirmationMessage {
   private UUID travelReservationId;
-  private Status status;
-
-  public void confirm() {
-    this.status = Status.CONFIRMED;
-  }
+  private Long days;
+  private LocalDateTime date;
 }
